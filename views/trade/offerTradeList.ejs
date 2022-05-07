@@ -1,0 +1,47 @@
+<%- include('../partials/header.ejs') %>
+
+        <page-header></page-header>
+        <div class='album py-5'>
+            <div class="container font-type  overflow-auto">
+                <div class="card-deck mb-3 ">
+                    <div class="card mb-4 shadow-sm">
+                        <form class="overflow-auto" action = '/tradeRequest/createTrade' method = 'POST'>
+                            <input name="offerOn" value="<%= tradeId%>" type="hidden">
+                        <% if(trades.length){ %>
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th></th>
+                                    <th scope="col" class="heading">Image</th>
+                                    <th scope="col" class="heading">Category</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                <% trades.forEach((trade)=>{ %>
+                                    <tr>
+                                        <th><input type="radio" value="<%= trade._id %>" name="offerFor"></th>
+                                        <th> <img class="bd-placeholder-img card-img-top" width="100"
+                                            height="225" src="/images/<%=trade.image %>" alt="painting_<%=
+                                            trade.itemId %>"></th>
+                                        <th><span class="text-uppercase text-muted font-theme-color"><%= trade.itemCategory %></span></th>
+                                    <tr>    
+                                <%}) %>
+                                </tbody>
+                            </table>  
+                            <div class="row padding-top-5">
+                                <br>
+                                <div class="col">
+                                    <button class = "btn btn-outline-primary rounded-pill form-control">Trade</button>
+                                </div>
+                            </div>   
+                            <%}else{%>
+                                <p class="heading">Please add your art work to proceed</p>
+                            <%}%>
+                        </form>    
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+
+                                

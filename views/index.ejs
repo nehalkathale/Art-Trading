@@ -1,0 +1,63 @@
+<%- include('./partials/header.ejs') %>
+<div class="album py-5">
+    <div class="container text-center">
+      <h1 class="text-muted">The Art Store</h1>
+      <p class="lead text-muted">where creative mind meets!</p>
+    </div>
+  <div class="container">
+    <div class="row">
+      <div class='album py-5 bg-dark'>
+        <div class="col-sm-12">
+          <div id="carouselId" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+              <div class="carousel-item active">
+                <div class="row">
+                  <div class="col">
+                    <img src="images/Feature_1.jpg" alt="homePageImage1" class="img-width-100">
+                  </div>
+                  <div class="col">
+                    <h1 class="font-theme-color">Collect Art From Nearby Artists</h1>
+                  </div>
+                </div>
+               
+              </div>
+              <div class="carousel-item">
+                <div class="row">
+                  <div class="col">
+                    <img src="images/Feature_1.jpg" alt="homePageImage2" class="img-width-100">
+                  </div>
+                  <div class="col">
+                    <h1 class="font-theme-color">Browse By Collection</h1>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="row">
+                  <div class="col">
+                    <img src="images/Feature_1.jpg" alt="homePageImage3" class="img-width-100">
+                  </div>
+                  <div class="col">
+                    <h1 class="font-theme-color">Trade Your Art </h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+<script src="javascript/jQuery.js"></script>
+<script src="javascript/bootstrap.js"></script>
+<script src="javascript/bootstrap.min.js"></script>
+<%- include('./partials/footer.ejs') %>   

@@ -1,0 +1,63 @@
+<%- include('../partials/header.ejs') %>
+    <page-header></page-header>
+    <div class='album py-5'>
+        <div class="container mt-5 mb-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-10">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="images p-3">
+                                    <div class="text-center p-4"> <img src="/images/<%=tradeDetails.image %>" width="250" alt="productDetails"/> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="product-details-background p-4">
+                                    <div class="mt-4 mb-3"> <span class="text-uppercase text-muted font-theme-color"><%= tradeDetails.itemCategory %></span>
+                                        <h5 class="font-theme-color" >The Art Store: <%= tradeDetails.itemCategory%></h5>
+                                        <h5 class="font-theme-color" >BY: <%= tradeDetails.artist %></h5>
+                                        <hr style="color: aliceblue;">
+                                        <div class="mb-30">
+                                            <p class="font-theme-color" >Description: <%= tradeDetails.Description %></p>
+                                            <p class="font-theme-color" >Painting Height: <%= tradeDetails.height %> cm</p>
+                                            <p class="font-theme-color" >Painting Width: <%= tradeDetails.width %> cm</p>
+                                            <p class="font-theme-color" >Traded On: <%= tradeDetails.createdAt %> </p>
+                                            <p class="font-theme-color" >Delivery Time: <%= tradeDetails.deliveryTime %></p>
+                                        </div>
+                                    </div>
+                                    <hr style="color: aliceblue;">
+                                    <div class="mb-30">
+                                        <p class="font-theme-color">Are you interested in this Art?</p>
+                                    </div>
+                                    
+                                    <div class="mt-4 align-items-center"> 
+                                        
+                                            <% if(!(user == tradeDetails.creator._id)){%>
+                                            <a class="btn btn-outline-primary fa fa-exchange-alt" type ="submit" href="/tradeRequest/makeOffer/<%= tradeDetails.id%>"> Trade It</a>
+                                            <%}%>
+                                            <% if(!addedToWatchList && !(user == tradeDetails.creator._id)){%>
+                                                <a class="btn btn-outline-primary fa fa-heart" href="/trades/watchList/<%= tradeDetails.id%>"> Add to WatchList</a>
+                                            <%}else if(!(user == tradeDetails.creator._id)){ %>
+                                                <a class="btn btn-outline-primary fa fa-heart" href="/trades/removeFromWatchList/<%= tradeDetails.id%>"> Remove From WatchList</a>
+                                            <%}%>
+                                        
+                                    </div>
+                                    <% if(user == tradeDetails.creator._id){%>
+                                    <div class="mt-4 align-items-center"> 
+                                        <form>
+                                            <button class="btn btn-outline-primary fa fa-edit"  type = "submit" formmethod ="GET"  formaction ="/trades/<%= tradeDetails.id%>/edit"> Edit</button> 
+                                            <button class="btn btn-outline-primary fa fa-trash" type ="submit" formmethod ="POST" formaction ="/trades/<%= tradeDetails.id%>?_method=DELETE"> Delete</button> 
+                                        </form>
+                                    </div>
+                                    <%}%>
+                                    <hr style="color: aliceblue;">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div> 
+    <%- include('../partials/footer.ejs') %>   

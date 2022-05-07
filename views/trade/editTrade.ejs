@@ -1,0 +1,77 @@
+<%- include('../partials/header.ejs') %>
+    <div class='album py-5'>
+        <div class="container font-type container-backgroud">
+            <form method="POST" action="/trades/<%= trade.id%>?_method=PUT" class="overflow-auto" enctype="multipart/form-data">
+                <div class="row padding-top-5"></div>
+                <h1> Edit your ArtWork!</h1>
+
+                <div class="row padding-top-5">
+                    <div class="col">
+                        <label for="tradeTitleEdit">Title</label>
+                        <input type="text" class="form-control" id="tradeTitleEdit" name="itemName"
+                            value="<%= trade.itemName %>" required>
+                    </div>
+                </div>
+                <div class="row padding-top-5">
+                    <div class="col">
+                        <label for="editartist">Artist</label>
+                        <input type="text" class="form-control" name="artist" id="editartist"  value="<%= trade.artist %>" required>
+                    </div>
+                </div>
+                <div class="row padding-top-5">
+                    <div class="col">
+                        <label for="tradeCategoryEdit">Category</label>
+                        <input type="text" class="form-control" id="tradeCategoryEdit" name="itemCategory" required
+                            value=<%=trade.itemCategory %>>
+                    </div>
+                    <div class="col">
+                        <label for="subCategoryEdit">Sub Category</label>
+                        <input type="text" class="form-control" id="subCategoryEdit" name="itemSubCategory"
+                            value="<%= trade.itemSubCategory %>" required>
+                    </div>
+                </div>
+                <div class="row padding-top-5">
+                    <div class="col">
+                        <label for="heightEdit" class="">Height</label>
+                        <input type="number" class="form-control" id="heightEdit" name="height"
+                            value="<%= trade.height %>" required>
+                        <small>Enter height in inches</small>
+                    </div>
+                    <div class="col">
+                        <label for="widthEdit" class="">Width</label>
+                        <input type="number" class="form-control" id="widthEdit" name="width"
+                            value="<%= trade.width %>" required>
+                        <small>Enter width in inches</small>
+                    </div>
+                </div>
+                <div class="row padding-top-5">
+                    <div class="col">
+                        <label for="descriptionEdit" class="">Product Description</label>
+                        <textarea class="form-control" id="descriptionEdit" name="Description" required><%= trade.Description %> </textarea>
+                    </div>
+                </div>
+                <div class="row padding-top-5">
+                    <div class="col">
+                        <label for="deliveryTimeEdit">Delivery Time</label>
+                        <input type="text" class="form-control" name="deliveryTime" id="deliveryTimeEdit" required value = <%= trade.deliveryTime %> >
+                    </div>
+                </div>
+                <div class="row padding-top-5 ">
+                    <div class="col image-upload-border">
+                        <label>Drag and Drop Photo Here | </label>
+                        <label>Files supported: JPG, PNG | </label>
+                        <label>Total maximum size: 30 MB</label>
+                        <input accept="image/jpeg,image/png" class="btn btn-outline-primary rounded-pill form-control"
+                            name="image" multiple type="file" required id="imageEdit" src="/images/<%= trade.image %>">
+                    </div>
+                </div>
+                <div class="row padding-top-5">
+                    <div class="col">
+                        <button class="btn btn-outline-primary rounded-pill form-control">Edit Your
+                            Art Work</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <%- include('../partials/footer.ejs') %>

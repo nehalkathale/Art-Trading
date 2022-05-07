@@ -1,0 +1,48 @@
+<%- include('../partials/header.ejs') %>
+
+        <page-header></page-header>
+        <div class='album py-5'>
+            <div class="container font-type  overflow-auto">
+                <div class="card-deck mb-3 ">
+                    <div class="card mb-4 shadow-sm">
+                        <% if(trades.length){ %>
+                            <%categories.forEach(category=>{ %>
+                                <div class="card-body">
+                                    <div class="card-header bg-dark">
+                                        <h4 class="my-0 font-weight-normal fst-italic header-contain">
+                                            <%= category %>
+                                        </h4>
+                                    </div>
+
+                                    <div class="row">
+                                        <% trades.forEach(trade=>{ %>
+                                            <% if(trade.itemCategory===category){%>
+                                                <br>
+                                                <div class="col-md-4">
+                                                    <a href="/trades/<%= trade.id %>"
+                                                        class="removeLink color-black">
+                                                        <div class="card mb-4 shadow-sm">
+                                                            <img class="bd-placeholder-img card-img-top" width="100"
+                                                                height="225" src="/images/<%=trade.image %>" alt="painting_<%=
+                                                                trade.itemId %>">
+                                                            <div class="card-body">
+                                                                <Span> The Art Store: <%= trade.sku %> </Span><br>
+                                                                <span> Status: <%= trade.status %></span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <%}%>
+                                                    <%});%>
+                                                        <div>
+                                                        </div>
+                                    </div>
+                                </div>
+                                <% }); }else{%>
+                                    <p>There are no trades to display.</p>
+                                    <%}%>
+                                         </div>
+                    </div>
+                </div>
+            </div>
+            <%- include('../partials/footer.ejs') %>

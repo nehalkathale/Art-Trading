@@ -1,0 +1,51 @@
+<%- include('../partials/header.ejs')%>
+<h3>Requests for You:</h3>
+<div class='album py-5'>
+    <div class="container font-type  overflow-auto">
+        <div class="card-deck mb-3 ">
+            <div class="card mb-4 shadow-sm">
+                <form>
+                <% if(myOffers.length){ %>
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th  scope="col" class="heading">Requested Trade</th>
+                            <th scope="col" class="heading">Exchange With</th>
+                            <th scope="col" class="heading">Request From</th>
+                            <th scope="col" class="heading">Status</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <% myOffers.forEach((offer)=>{ %>
+                            <tr>
+                                <th> <img class="bd-placeholder-img card-img-top" width="100"
+                                    height="225" src="/images/<%=offer.requestedArt.image %>" alt="painting_<%=
+                                    offer.requestedArt.itemId %>">
+                                </th>
+                                <th> <img class="bd-placeholder-img card-img-top" width="100"
+                                        height="225" src="/images/<%=offer.exchangeArt.image %>" alt="painting_<%=
+                                        offer.exchangeArt.itemId %>">
+                                </th>
+                                <th class="heading"><span class="text-uppercase text-muted font-theme-color"><%= offer.requestFrom.firstName +" " + offer.requestFrom.lastName %></span></th>
+                                <th class="heading"><span class="text-uppercase text-muted font-theme-color"><%= offer.status %></span></th>
+                                <% if(offer.status === 'open' || offer.status === 'pending'){ %>
+                                    <th>
+                                        <form>
+                                            <a class="btn btn-outline-primary fa fa-check-square" type = "submit"   href ="/tradeRequest/acceptTradeRequest/<%= offer._id %>"> Accept</button> 
+                                            <a class="btn btn-outline-primary fa fa-ban" type ="submit"  href ="/tradeRequest/rejectTradeRequest/<%= offer._id %>"> Reject</button> 
+                                        </form>
+                                    </th>
+                                <% } %>
+                            <tr>    
+                        <%}) %>
+                        </tbody>
+                    </table>   
+                </form>  
+                <%}else{%>
+                        <p class="heading">You don't have any requests</p>
+                <%}%>
+            </div>
+        </div>
+    </div>
+</div>        

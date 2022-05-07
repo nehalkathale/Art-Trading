@@ -1,0 +1,76 @@
+<%- include('../partials/header.ejs') %>
+
+            <div class ='album py-5'>
+            <div class="container font-type container-backgroud">
+                <div class="row padding-top-5"></div>
+                <h1> Please tell us about your ArtWork!</h1>
+                <form class="overflow-auto" action = '/trades' method = 'POST' enctype="multipart/form-data">
+                    <div class="row padding-top-5">
+                        <div class="col">
+                            <label for="tradeTitle">Title</label>
+                            <input type="text" class="form-control" name="itemName" id="tradeTitle" required>
+                        </div>
+                    </div>
+                    <div class="row padding-top-5">
+                        <div class="col">
+                            <label for="tradeartist">Artist</label>
+                            <input type="text" class="form-control" name="artist" id="tradeartist" required>
+                        </div>
+                    </div>
+                    <div class="row padding-top-5">
+                        <div class="col">
+                            <label for="tradeCategory">Category</label>
+                            <input type="text" class="form-control"  name="itemCategory" id="tradeCategory" required>
+                        </div>
+                        <div class="col">
+                            <label for="subCategory">Sub Category</label>
+                            <input type="text" class="form-control" name="itemSubCategory" id="subCategory" required>
+                        </div> 
+                    </div>
+                    <div class="row padding-top-5">
+                        <div class="col">
+                            <label for="height" class="">Height</label>
+                            <input type="number" class="form-control" id="height" name="height" required>
+                            <small>Enter height in inches</small>
+                        </div> 
+                        <div class="col">
+                            <label for="width" class="">Width</label>
+                            <input type="number" class="form-control" id="width" name = "width" required>
+                            <small>Enter width in inches</small>
+                        </div> 
+                    </div> 
+                    <div class="row padding-top-5">
+                        <div class="col">
+                            <label for="description" class="">Product Description</label>
+                            <textarea  class="form-control" id="description" name = "Description" minlength="50" required></textarea>
+                        </div>
+                    </div> 
+                    <div class="row padding-top-5">
+                        <div class="col">
+                            <label for="deliveryTime">Delivery Time</label>
+                            <input type="text" class="form-control" name="deliveryTime" id="deliveryTime" required>
+                        </div>
+                    </div>
+                    <div class="row padding-top-5 ">
+                        <div class="col image-upload-border">
+                            <label >Drag and Drop Photo Here | </label>
+                            <label >Files supported: JPG, PNG | </label>
+                            <label >Total maximum size: 30 MB</label>
+                            <input type="file" name = "image" accept="image/*" class="btn btn-outline-primary rounded-pill form-control" 
+                             required id="imageNew">
+                            <img id="newTradeImage" alt="newTradeImage" hidden/>
+                        </div>
+                    </div>  
+                      
+                    <div class="row padding-top-5">
+                        <div class="col">
+                            <button class = "btn btn-outline-primary rounded-pill form-control">Submit Your Art Work</button>
+                        </div>
+                    </div> 
+                </form>
+            </div>     
+        </div>  
+        <%- include('../partials/footer.ejs') %>   
+            
+
+        

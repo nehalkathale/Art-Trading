@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang = "en">
+<meta  charset="utf-8">
+<title>The Art Trade</title>
+<link rel="shortcut icon" href="/images/icon.png">
+<link type="text/css" rel="stylesheet" href="/css/app.css">
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.css">
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css">
+<link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css">
+<link type="text/css" rel="stylesheet" href="/css/all-font-awesome.min.css">
+<script src="/javascript/imageValidation.js"></script>
+<body class="backGround d-flex flex-column min-vh-100"">
+    <header>
+        <div
+            class="d-flex flex-column flex-md-row d-flex justify-content-between p-3 px-md-4 mb-3 bg-black border-bottom shadow-sm">
+            <a href="/" class="my-0 mr-md-auto font-weight-normal">
+                <img src='/images/icon.png' width="60" height="40" aria-hidden="true" class="mr-2" alt="icon">
+            </a>
+            <div class="my-2 my-md-0 mr-md-3">
+                <a class="btn btn-outline-primary fa fa-plus-square" href="/trades/new"></a>    
+                <a class="btn btn-outline-primary my-2 align-left fa fa-list" href="/trades"></a>
+                <a style='color:#4ab5bf'> | </a>
+                <% if(!user){%>
+                <a class="btn btn-outline-primary fa fa-sign-in-alt" href="/user/login"></a>
+                <a class="btn btn-outline-primary fa fa-user-plus" href="/user/new"></a>
+                <%}else{%>
+                <a class="fas fa-home btn btn-outline-primary" href="/user/profile"></a>
+                <a class="fa fa-shopping-cart btn btn-outline-primary" href="/user/watchlist"></a>
+                <a class="fa fa-sign-out-alt btn btn-outline-primary" href="/user/logout"></a>
+                <a class="fa fa-sign-out-alt btn btn-outline-primary" href="/tradeRequest/userRequestedTrades">My Trade Requests</a>
+                <a class="fa fa-sign-out-alt btn btn-outline-primary" href="/tradeRequest/tradeRequestForUser">Trade Requests For Me</a>
+                <%}%> 
+               
+            </div>
+            
+        </div>
+        <hr class="hr-primary" />
+    </header>
+    <% if(errorMessages.length > 0) {%>
+        <% errorMessages.forEach(message=>{%>
+            <div id ='failMessages' class='justify-content-center bg-black p-3 px-md-4 mb-3 d-flex flex-column flex-md-row font-theme-color'>
+                <%=message%>
+            </div>
+            <%});%>
+                <%}%>
+    
+                    <% if(successMessages.length > 0) {%>
+    
+                        <% successMessages.forEach(message=>{%>
+                            <div id ='successMessages' class='justify-content-center bg-black p-3 px-md-4 mb-3 d-flex flex-column flex-md-row font-theme-color'>
+                                <%=message%>
+                            </div>
+                            <%});%>
+                                <%}%>

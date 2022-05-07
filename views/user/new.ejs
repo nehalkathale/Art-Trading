@@ -1,0 +1,45 @@
+<%- include('../partials/header.ejs')%>
+<div class ='album py-5'>
+    <div class="container font-type container-backgroud">
+        <div class="row padding-top-5"></div>
+        <h1 class="heading">THE ART WORLD ONLINE</h1>
+    <form action="/user/new" method="POST">
+        <div class="row padding-top-5">
+            <div class="col">
+                <label for="firstName">First Name:</label>
+                <input type="text" class="form-control" name="firstName" id="firstName" required>
+            </div>
+        </div>
+        <div class="row padding-top-5">
+            <div class="col">
+                <label for="lastName">Last Name:</label>
+                <input type="text" class="form-control" name="lastName" id="lastName" required>
+            </div>
+        </div>
+        <div class="row padding-top-5">
+            <div class="col">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" name="email" id="email" required>
+            </div>
+        </div>
+        <div class="row padding-top-5">
+            <div class="col">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" name="password" id="password" required>
+            </div>
+        </div>
+        <div class="row padding-top-5">
+            <div class="col">
+                <button class = "btn btn-outline-primary rounded-pill form-control">Sign up</button>
+            </div>
+        </div>
+        <br>
+    </form>
+    </div>
+    </div>
+    <%- include('../partials/footer.ejs')%>
+
+</body>
+
+
+</html>
