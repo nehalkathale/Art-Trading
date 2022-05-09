@@ -18,22 +18,23 @@
                         </thead>
                         <tbody>
                         <% myOffers.forEach((offer)=>{ %>
+                            <% if(offer.status === 'open' || offer.status === 'pending'){ %>
                             <tr>
                                 <th> <img class="bd-placeholder-img card-img-top" width="100"
-                                    height="225" src="/images/<%=offer.requestedArt.image %>" alt="painting_<%=
+                                    height="225" src="/images/<%= offer.requestedArt.image %>" alt="painting_<%=
                                     offer.requestedArt.itemId %>">
                                 </th>
                                 <th> <img class="bd-placeholder-img card-img-top" width="100"
-                                        height="225" src="/images/<%=offer.exchangeArt.image %>" alt="painting_<%=
+                                        height="225" src="/images/<%= offer.exchangeArt.image %>" alt="painting_<%=
                                         offer.exchangeArt.itemId %>">
                                 </th>
                                 <th class="heading"><span class="text-uppercase text-muted font-theme-color"><%= offer.requestFrom.firstName +" " + offer.requestFrom.lastName %></span></th>
                                 <th class="heading"><span class="text-uppercase text-muted font-theme-color"><%= offer.status %></span></th>
-                                <% if(offer.status === 'open' || offer.status === 'pending'){ %>
+                                
                                     <th>
                                         <form>
-                                            <a class="btn btn-outline-primary fa fa-check-square" type = "submit"   href ="/tradeRequest/acceptTradeRequest/<%= offer._id %>"> Accept</button> 
-                                            <a class="btn btn-outline-primary fa fa-ban" type ="submit"  href ="/tradeRequest/rejectTradeRequest/<%= offer._id %>"> Reject</button> 
+                                            <button class="btn btn-outline-primary fa fa-check-square" type = "submit" formmethod="POST"  formaction ="/tradeRequest/acceptTradeRequest/<%= offer._id %>"> Accept</button> 
+                                            <button class="btn btn-outline-primary fa fa-ban" type ="submit" formmethod="POST"  formaction ="/tradeRequest/rejectTradeRequest/<%= offer._id %>"> Reject</button> 
                                         </form>
                                     </th>
                                 <% } %>

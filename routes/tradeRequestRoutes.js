@@ -16,15 +16,12 @@ router.get('/userRequestedTrades',isLoggedIn,controller.getMyTradeRequests);
 //get trade request for user
 router.get('/tradeRequestForUser',isLoggedIn,controller.getTradeRequestForMe);
 
-//update trade request
-router.get('/updateTradeRequest/:id',isLoggedIn,controller.updateTrade);
-
 //delete trade request
-router.get('/deleteTradeRequest/:id',isLoggedIn,controller.deleteTrade);
+router.post('/deleteTradeRequest/:id',isLoggedIn,controller.deleteTrade);
 
 //accept trade request
-router.get('/acceptTradeRequest/:id',isLoggedIn,controller.acceptTrade);
+router.post('/acceptTradeRequest/:id',isLoggedIn,controller.acceptTrade);
 
 //reject trade request
-router.get('/rejectTradeRequest/:id',isLoggedIn,controller.rejectTrade);
+router.post('/rejectTradeRequest/:id',isLoggedIn,controller.rejectTrade);
 module.exports = router;

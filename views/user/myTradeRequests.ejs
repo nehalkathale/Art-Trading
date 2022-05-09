@@ -17,20 +17,20 @@
                         </thead>
                         <tbody>
                         <% myOffers.forEach((offer)=>{ %>
+                            <% if(offer.status === 'open' || offer.status === 'pending'){ %>
                             <tr>
                                 <th> <img class="bd-placeholder-img card-img-top" width="100"
-                                    height="225" src="/images/<%=offer.requestedArt.image %>" alt="painting_<%=
-                                    offer.requestedArt.itemId %>"></th>
+                                    height="225" src="/images/<%= offer.requestedArt.image%>" alt="painting_<%=
+                                    offer.requestedArt._id %>"></th>
                                 <th> <img class="bd-placeholder-img card-img-top" width="100"
-                                        height="225" src="/images/<%=offer.exchangeArt.image %>" alt="painting_<%=
-                                        offer.exchangeArt.itemId %>"></th>
+                                        height="225" src="/images/<%= offer.exchangeArt.image%>" alt="painting_<%=
+                                        offer.exchangeArt._id %>"></th>
                                 <th><span class="text-uppercase text-muted font-theme-color"><%= offer.requestTo.firstName +" " + offer.requestTo.lastName %></span></th>
                                 <th><span class="text-uppercase text-muted font-theme-color"><%= offer.status %></span></th>
-                                <% if(offer.status === 'open' || offer.status === 'pending'){ %>
+                                
                                     <th>
                                         <form>
-                                            <a class="btn btn-outline-primary fa fa-edit" type = "submit"   href ="/tradeRequest/updateTradeRequest/<%= offer._id %>"> Edit</button> 
-                                            <a class="btn btn-outline-primary fa fa-trash" type ="submit"  href ="/tradeRequest/deleteTradeRequest/<%= offer._id %>"> Delete</button> 
+                                            <button class="btn btn-outline-primary fa fa-trash" type ="submit"  formmethod ="POST"  formaction ="/tradeRequest/deleteTradeRequest/<%= offer._id %>">Cancel Request</button> 
                                         </form>
                                     </th>
                                 <% } %>

@@ -31,15 +31,17 @@
                                     </div>
                                     
                                     <div class="mt-4 align-items-center"> 
-                                        
+                                        <form>
                                             <% if(!(user == tradeDetails.creator._id)){%>
-                                            <a class="btn btn-outline-primary fa fa-exchange-alt" type ="submit" href="/tradeRequest/makeOffer/<%= tradeDetails.id%>"> Trade It</a>
+                                            <button class="btn btn-outline-primary fa fa-exchange-alt" type ="submit" formmethod ="GET" formaction="/tradeRequest/makeOffer/<%= tradeDetails.id%>"> Trade It</a>
                                             <%}%>
                                             <% if(!addedToWatchList && !(user == tradeDetails.creator._id)){%>
-                                                <a class="btn btn-outline-primary fa fa-heart" href="/trades/watchList/<%= tradeDetails.id%>"> Add to WatchList</a>
+                                                <button class="btn btn-outline-primary fa fa-heart" formmethod ="POST" formaction="/trades/watchList/<%= tradeDetails.id%>"> Add to WatchList</a>
                                             <%}else if(!(user == tradeDetails.creator._id)){ %>
-                                                <a class="btn btn-outline-primary fa fa-heart" href="/trades/removeFromWatchList/<%= tradeDetails.id%>"> Remove From WatchList</a>
+                                                <button class="btn btn-outline-primary fa fa-heart" formmethod ="POST" formaction="/trades/removeFromWatchList/<%= tradeDetails.id%>"> Remove From WatchList</a>
                                             <%}%>
+
+                                        </form>
                                         
                                     </div>
                                     <% if(user == tradeDetails.creator._id){%>

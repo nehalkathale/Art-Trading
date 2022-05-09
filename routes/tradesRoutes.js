@@ -44,9 +44,9 @@ router.put('/:id',isLoggedIn,upload.single('image'), controller.updateElementByI
 router.post('/',isLoggedIn,upload.single('image'),controller.createNewTrade)
 
 // add to watchList
-router.get('/watchList/:id',validateId,isLoggedIn,controller.addToWatchList)
+router.post('/watchList/:id',validateId,isLoggedIn,controller.addToWatchList)
 
 //remove from watchList
-router.get('/removeFromWatchList/:id',validateId,isLoggedIn,controller.removeFromWatchList)
+router.post('/removeFromWatchList/:id',validateId,isLoggedIn,controller.removeFromWatchList)
 
 module.exports = router;

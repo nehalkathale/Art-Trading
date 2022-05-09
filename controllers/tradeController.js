@@ -1,6 +1,7 @@
 const tradeModel = require ('../models/tradeModels')
 var randomize = require('randomatic');
-const watchList = require('../models/watchListModels')
+const watchList = require('../models/watchListModels');
+const offerModels = require('../models/offerModels');
 
 exports.index = (request,response,next)=>{
     tradeModel.find()
@@ -116,18 +117,30 @@ exports.deleteElementByID = (request,response,next) =>{
     let id = request.params.id;
     tradeModel.findByIdAndDelete(id,{useFindAndModify:false})
     .then(trade=>{
-        if(trade){
-            response.redirect('/trades'); 
-        }else {
+        if(!trade){
             let error = new Error('Cannot find a trade with id ' + id);
             error.status = 404;
-            next(error);
+            next(error);    
         }
+        return trade;
+    }).then(trade=>{
+        return offerModels.updateMany({
+            requestedArt: id
+        }, {status: "rejected"}, {multi: true})
+    }).then((trade)=>{
+        return offerModels.updateMany({
+            exchangeArt: id
+        }, {status: "closed"}, {multi: true})
+    }).then(trade=>{
+        console.log("Trade details are:",trade);
+        response.redirect('/trades'); 
     })
     .catch(error=>{
         if(error.name === "ValidationError"){
             error.status = 400;
         }
+        request.flash('error','Error in deleting trade');
+        response.redirect('/trades');
         next(error);
     })
 }
