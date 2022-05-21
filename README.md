@@ -20,7 +20,7 @@ Use modularized controller to control the flow of the application.
 4) User can propose a trade and wait for the other user to accept the trade.
 5) User can accept, reject or cancel the trade.
 
-# Secure Passwords, Session and cookies:
+# Secure Passwords, Session and Cookies:
 1) Used Bcrypt library to safely store passwords using hashing.
 2) express-session is used for session.
 # User Authorization:
