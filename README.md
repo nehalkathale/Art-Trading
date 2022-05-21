@@ -1,5 +1,6 @@
 # Introduction
 Online art Trading Application using MongoDB database and displayed with Node.js and Express.js.
+<br />
 Use the MVC pattern
 Model:  Use Mongoose to integrate a MongoDB database to provide persistent data storage.
 View: Use EJS pages to present the view to the browser.
