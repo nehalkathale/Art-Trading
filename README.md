@@ -2,10 +2,10 @@
 Online art Trading Application using MongoDB database and displayed with Node.js and Express.js.
 <br />
 Use the MVC pattern
-Model:  Use Mongoose to integrate a MongoDB database to provide persistent data storage.
-View: Use EJS pages to present the view to the browser.
-Use modularized routes to forward the request to the appropriate controller function.
-Use modularized controller to control the flow of the application.
+<br />Model:  Use Mongoose to integrate a MongoDB database to provide persistent data storage.
+<br />View: Use EJS pages to present the view to the browser.
+<br />Use modularized routes to forward the request to the appropriate controller function.
+<br />Use modularized controller to control the flow of the application.
 
 # Technology Stack:
 1) Node.js
